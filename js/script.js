@@ -12,13 +12,16 @@ function bestMove(){
     
     var board = document.getElementById('board-board')
     var pieces = board.getElementsByTagName('div')
+    console.log(pieces)
     var nbPieces = pieces.length
+    console.log(nbPieces)
     var listesPieces = []
     for (let i = 0; i < nbPieces; i++){
-        listesPieces.push(trimPiece(pieces.item(i).className))
+        if (!(pieces.item(i).className.includes('highlight'))){
+            listesPieces.push(trimPiece(pieces.item(i).className))
+        }       
     }
-    console.log("oui")
-    
+
     alert(listesPieces)
 
 }
