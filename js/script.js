@@ -1,13 +1,12 @@
-chrome.runtime.onConnect.addListener(port => {
-    port.onMessage.addListener(msg => {
-        console.log(msg)
-        if (msg.greeting == "bestMove"){
-            console.log("get best move");
+
+console.log('content script ready')
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender) {
+        if (request.message == "bestMove"){
+            bestMove()
         }
-    })
-})
-
-
+   });
 
 function bestMove(){
     
@@ -20,7 +19,7 @@ function bestMove(){
     }
     console.log("oui")
     
-    alert(board)
+    alert(listesPieces)
 
 }
 
